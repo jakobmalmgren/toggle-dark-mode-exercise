@@ -1,0 +1,155 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.toggle-theme {
+  margin-bottom: auto;
+  margin-top: 2rem;
+}
+
+.toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  border-radius: 50px;
+  background-color: #fff;
+  transform: scale(-1, 1);
+}
+
+.toggle-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 1px;
+  height: 1px;
+  box-shadow: 0px 0px transparent, 3px 0px transparent, 6px 0px transparent,
+    9px 0px transparent, 12px 0px #000, 15px 0px #000, 18px 0px #000,
+    21px 0px #000, 24px 0px #000, 27px 0px #000, 0px 3px transparent,
+    3px 3px transparent, 6px 3px transparent, 9px 3px #000, 12px 3px red,
+    15px 3px red, 18px 3px red, 21px 3px red, 24px 3px red, 27px 3px red,
+    30px 3px #000, 0px 6px transparent, 3px 6px transparent, 6px 6px #000,
+    9px 6px red, 12px 6px red, 15px 6px red, 18px 6px red, 21px 6px red,
+    24px 6px red, 27px 6px red, 30px 6px red, 33px 6px #000, 0px 9px transparent,
+    3px 9px #000, 6px 9px #000, 9px 9px #ffffff, 12px 9px red, 15px 9px red,
+    18px 9px red, 21px 9px red, 24px 9px red, 27px 9px red, 30px 9px red,
+    33px 9px #000, 0px 12px #000, 3px 12px #ffffff, 6px 12px #ffffff,
+    9px 12px #ffffff, 12px 12px #ffffff, 15px 12px red, 18px 12px #000,
+    21px 12px #000, 24px 12px #000, 27px 12px #000, 30px 12px #000,
+    33px 12px #000, 36px 12px #000, 0px 15px transparent, 3px 15px #000,
+    6px 15px #000, 9px 15px red, 12px 15px red, 15px 15px red, 18px 15px #ffdbac,
+    21px 15px #000, 24px 15px #000, 27px 15px #000, 30px 15px #000,
+    33px 15px #000, 36px 15px #000, 0px 18px transparent, 3px 18px transparent,
+    6px 18px #000, 9px 18px #ffdbac, 12px 18px #000, 15px 18px #ffdbac,
+    18px 18px #ffdbac, 21px 18px #000, 24px 18px #ffdbac, 27px 18px #ffdbac,
+    30px 18px #000, 33px 18px #000, 36px 18px #000, 0px 21px transparent,
+    3px 21px transparent, 6px 21px #000, 9px 21px #ffdbac, 12px 21px #000,
+    15px 21px #ffdbac, 18px 21px #ffdbac, 21px 21px #000, 24px 21px #ffdbac,
+    27px 21px #ffdbac, 30px 21px #000, 33px 21px #000, 0px 24px transparent,
+    3px 24px transparent, 6px 24px #000, 9px 24px #ffdbac, 12px 24px #ffdbac,
+    15px 24px #ffdbac, 18px 24px #ffdbac, 21px 24px #ffdbac, 24px 24px #ffdbac,
+    27px 24px #ffdbac, 30px 24px #000, 0px 27px transparent,
+    3px 27px transparent, 6px 27px transparent, 9px 27px #000, 12px 27px #ffdbac,
+    15px 27px #ffdbac, 18px 27px #ffdbac, 21px 27px #ffdbac, 24px 27px #000,
+    27px 27px #000, 30px 27px #40c8f1, 33px 27px #000, 0px 30px transparent,
+    3px 30px transparent, 6px 30px transparent, 9px 30px transparent,
+    12px 30px #000, 15px 30px #000, 18px 30px #000, 21px 30px #000,
+    24px 30px #000, 27px 30px #000, 30px 30px #40c8f1, 33px 30px #000,
+    0px 33px transparent, 3px 33px transparent, 6px 33px #000, 9px 33px #000,
+    12px 33px #000, 15px 33px #000, 18px 33px #000, 21px 33px #000,
+    24px 33px #ffdbac, 27px 33px #ffdbac, 30px 33px #000, 33px 33px #000,
+    0px 36px transparent, 3px 36px #000, 6px 36px #266d02, 9px 36px #266d02,
+    12px 36px #000, 15px 36px #8caeb9, 18px 36px #8caeb9, 21px 36px #000,
+    24px 36px #ffdbac, 27px 36px #ffdbac, 30px 36px #000, 33px 36px #266d02,
+    36px 36px #000, 0px 39px transparent, 3px 39px transparent, 6px 39px #000,
+    9px 39px #266d02, 12px 39px #266d02, 15px 39px #000, 18px 39px #000,
+    21px 39px #000, 24px 39px #000, 27px 39px #000, 30px 39px #266d02,
+    33px 39px #266d02, 36px 39px #000, 0px 42px transparent,
+    3px 42px transparent, 6px 42px transparent, 9px 42px #000, 12px 42px #000,
+    15px 42px #000, 18px 42px transparent, 21px 42px transparent,
+    24px 42px transparent, 27px 42px transparent, 30px 42px #000, 33px 42px #000;
+  animation: moveLeft 0.3s ease-in-out;
+  padding: 2px;
+}
+
+input:checked + .toggle-button:before {
+  -webkit-transform: translateX(58px);
+  transform: translateX(58px);
+  animation: moveRight 0.3s ease-in-out;
+}
+
+input:checked + .toggle-button {
+  background-color: #3a3a3a;
+}
+
+@-webkit-keyframes moveRight {
+  0% {
+    width: 3px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  50% {
+    width: 10px;
+  }
+  100% {
+    width: 3px;
+    -webkit-transform: translateX(58px);
+    transform: translateX(58px);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    width: 3px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  50% {
+    width: 10px;
+  }
+  100% {
+    width: 3px;
+    -webkit-transform: translateX(58px);
+    transform: translateX(58px);
+  }
+}
+
+@-webkit-keyframes moveLeft {
+  0% {
+    width: 3px;
+    -webkit-transform: translateX(58px);
+    transform: translateX(58px);
+  }
+  50% {
+    width: 10px;
+  }
+  100% {
+    width: 3px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    width: 3px;
+    -webkit-transform: translateX(58px);
+    transform: translateX(58px);
+  }
+  50% {
+    width: 10px;
+  }
+  100% {
+    width: 3px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
