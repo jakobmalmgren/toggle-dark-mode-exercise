@@ -1,6 +1,10 @@
-import { useState, createContext, useContext, useEffect } from "react";
+import { useState, createContext, useContext } from "react";
+// sätter createcontext till themecontext
+// const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
-const ThemeContext = createContext();
+// hade kunnat exportera o in i loginform, o ej använda HOOKEN längst ner:
+// export const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
@@ -19,7 +23,12 @@ export function ThemeProvider({ children }) {
 }
 
 export function useTheme() {
+  // context blir värdet som themecontext.providern skickas som props
   const context = useContext(ThemeContext);
+  // samma som:
+  // const { theme, toggleTheme } = useContext(ThemeContext);
+  console.log("context:", context);
+
   if (!context) {
     throw new Error("useTheme must be used within an ThemeProvider");
   }

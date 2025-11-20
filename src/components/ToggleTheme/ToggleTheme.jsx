@@ -7,7 +7,12 @@ function ToggleTheme() {
   return (
     <section className="toggle-theme">
       <div className="fig"></div>
-      <input type="checkbox" id="toggle" onChange={toggleTheme} />
+      <input
+        type="checkbox"
+        id="toggle"
+        data-testid="check"
+        onChange={toggleTheme}
+      />
       <label htmlFor="toggle" className="toggle-button"></label>
     </section>
   );
