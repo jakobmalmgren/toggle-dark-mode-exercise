@@ -6,6 +6,7 @@ import ToggleTheme from "./ToggleTheme";
 import { ThemeContext } from "../../context/ThemeContext";
 
 // integrerad test..
+// Riktig Provider (Test 2)
 
 // describe("ToggleTheme", () => {
 //   beforeEach(() => {
@@ -40,11 +41,21 @@ import { ThemeContext } from "../../context/ThemeContext";
 // });
 
 // unit test
+// Mock Provider (Test 1)
 // ser inte var de sker en klick o vilken funktion de kallar..måste kolla upp de!
 
 describe("ToggleTheme", () => {
   it("calls toggleTheme when toggle is clicked", () => {
     const toggleThemeMock = vi.fn();
+    // de här måste heta samma som de ja skicka in i ThemeContext.Prover
+    //    return (
+    //   <ThemeContext.Provider value={{ toggleTheme, theme }}>
+    //     {children}
+    //   </ThemeContext.Provider>
+    // );
+    // de här måste heta samma som de ja skicka in i ThemeContext.Prover som ovan..
+    //hooken useTheme används ändå men de är alltid light i testet, o ist för riktig
+    //func: toggleTheme körs toggleThemeMock!
     const mockContext = { theme: "light", toggleTheme: toggleThemeMock };
 
     render(
@@ -74,3 +85,8 @@ describe("ToggleTheme", () => {
     expect(formEl).toHaveClass("form-light");
   });
 });
+
+//  JÄMFÖRELSE EXAKT  testerna, test 1 o test 2:
+// Testtyp	Vad testas?	Bra till
+// Mock Provider (Test 1)	Komponenten i isolering, utan riktig logik	Unit tests
+// Riktig Provider (Test 2)	Hela systemet, riktig state, riktig toggle	Integration tests
